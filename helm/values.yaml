@@ -1,0 +1,54 @@
+image:
+  fullname: aleveille/octant-dashboard:latest
+  pullPolicy: Always
+
+keycloakGatekeeper:
+  enabled: false
+  url: ~
+  clientId: ~
+  clientSecret: ~
+  port: ~
+
+imagePullSecrets: ~
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: octant-readonly-sa
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: false
+  hosts: []
+  tls: []
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
