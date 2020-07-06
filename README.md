@@ -38,7 +38,7 @@ helm upgrade octant-dashboard helm --namespace octant  --install --values myValu
 ```
 
 Here's a sample `myValues.yaml` file compatible with [External DNS](https://github.com/kubernetes-sigs/external-dns), [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-and that assumes you are terminating SSL somewhere upstream.
+and that assumes you are terminating SSL somewhere upstream. By default, this chart will have Octant listens on port `8000` (service & pod).
 
 ```
 keycloakGatekeeper:
