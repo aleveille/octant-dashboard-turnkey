@@ -30,11 +30,16 @@ Effectively, using this repo you can:
 
 ## Installing with Helm
 
-Bundled in this repository is a Helm chart to deploy Octant to Kubernetes.
-Here's a sample deployment command:
+First, add the Helm chart repository (provided through GitHub Pages with the help of [Chart Releaser](https://github.com/helm/chart-releaser))
 
 ```
-helm upgrade octant-dashboard helm --namespace octant  --install --values myValues.yaml
+helm repo add octant-dashboard https://aleveille.github.io/octant-dashboard-turnkey/repo
+```
+
+Then install the chart:
+
+```
+helm upgrade octant-dashboard octant-dashboard/octant --namespace octant  --install --values myValues.yaml
 ```
 
 Here's a sample `myValues.yaml` file compatible with [External DNS](https://github.com/kubernetes-sigs/external-dns), [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
