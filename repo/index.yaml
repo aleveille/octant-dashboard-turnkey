@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  octant:
+  - apiVersion: v2
+    appVersion: 0.12.1
+    created: "2020-07-14T09:32:50.866461-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 1ab44f9d4aabdfde4f7d5f9bdd3a2cfa0048857b98666e78b5107ce355c42365
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-1.0.0/octant-1.0.0.tgz
+    version: 1.0.0
+generated: "2020-07-14T09:32:50.676382-04:00"
