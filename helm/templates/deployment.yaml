@@ -55,6 +55,9 @@ spec:
           env:
             - name: OCTANT_HTTP_PORT
               value: {{ .Values.service.port | quote }}
+          {{- if .Values.extraEnvs }}
+            {{- toYaml .Values.extraEnvs | nindent 12 }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /

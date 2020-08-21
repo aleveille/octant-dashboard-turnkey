@@ -9,6 +9,17 @@ keycloakGatekeeper:
   clientSecret: ~
   port: ~
 
+## Additional environment variables to set
+extraEnvs: []
+# extraEnvs:
+#   - name: OCTANT_PLUGIN_PATH
+#     value: /var/lib/octant-plugins
+#   - name: FOO
+#     valueFrom:
+#       secretKeyRef:
+#         key: FOO
+#         name: secret-resource
+
 imagePullSecrets: ~
 
 nameOverride: ""
