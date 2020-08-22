@@ -20,6 +20,16 @@ extraEnvs: []
 #         key: FOO
 #         name: secret-resource
 
+extraVolumeMounts: []
+## Additional volumeMounts to the main container.
+#  - name: plugin-dir
+#   mountPath: /var/lib/octant-plugins
+
+extraVolumes: []
+## Additional volumes to the pod.
+#  - name: plugin-dir
+#    emptyDir: {}
+
 extraInitContainers: []
 ## Containers, which are run before the app containers are started.
 # - name: init-myservice
