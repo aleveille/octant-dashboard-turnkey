@@ -9,6 +9,33 @@ keycloakGatekeeper:
   clientSecret: ~
   port: ~
 
+## Additional environment variables to set
+extraEnvs: []
+# extraEnvs:
+#   - name: OCTANT_PLUGIN_PATH
+#     value: /var/lib/octant-plugins
+#   - name: FOO
+#     valueFrom:
+#       secretKeyRef:
+#         key: FOO
+#         name: secret-resource
+
+extraVolumeMounts: []
+## Additional volumeMounts to the main container.
+#  - name: plugin-dir
+#   mountPath: /var/lib/octant-plugins
+
+extraVolumes: []
+## Additional volumes to the pod.
+#  - name: plugin-dir
+#    emptyDir: {}
+
+extraInitContainers: []
+## Containers, which are run before the app containers are started.
+# - name: init-myservice
+#   image: busybox
+#   command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
+
 imagePullSecrets: ~
 
 nameOverride: ""
