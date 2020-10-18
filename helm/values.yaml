@@ -1,6 +1,6 @@
 image:
-  fullname: aleveille/octant-dashboard:latest
-  pullPolicy: Always
+  fullname: aleveille/octant-dashboard:v0.16.1
+  pullPolicy: IfNotPresent
 
 keycloakGatekeeper:
   enabled: false
