@@ -46,6 +46,9 @@ serviceAccount:
   annotations: {}
   name: octant-readonly-sa
 
+clusterRole:
+  additionalRules: ~
+
 podSecurityContext:
   fsGroup: 2000
 

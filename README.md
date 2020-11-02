@@ -42,8 +42,9 @@ Then install the chart:
 helm upgrade octant-dashboard octant-dashboard/octant --namespace octant  --install --values myValues.yaml
 ```
 
-Here's a sample `myValues.yaml` file compatible with [External DNS](https://github.com/kubernetes-sigs/external-dns), [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-and that assumes you are terminating SSL somewhere upstream. By default, this chart will have Octant listens on port `8000` (service & pod).
+Here's a sample Helm value file compatible with [External DNS](https://github.com/kubernetes-sigs/external-dns), [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+and that assumes you are terminating SSL somewhere upstream. By default, this chart will have Octant listens on port `8000` (service & pod). There's also a way to give Octant more cluster role rules in order to list custom resources that aren't
+already part of this chart.
 
 ```
 keycloakGatekeeper:
@@ -66,6 +67,16 @@ ingress:
       paths:
       - /
   tls: []
+
+clusterRole:
+  additionalRules:
+  - apiGroups:
+    - "my.co"
+    resources: ["*"]
+    verbs:
+    - get
+    - list
+    - watch
 ```
 
 
