@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "octant.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       {{- include "octant.selectorLabels" . | nindent 6 }}
@@ -21,8 +21,50 @@ spec:
       serviceAccountName: {{ include "octant.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if .Values.extraInitContainers }}
       initContainers:
+      {{- if .Values.plugins.install }}
+        - name: plugins-installer
+          image: alpine:latest
+          imagePullPolicy: Always
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Downloading plugins"
+
+              OCTANT_PLUGINS_DIR=${OCTANT_PLUGINS_DIR%/}
+              OCTANT_PLUGINS_DIR=${OCTANT_PLUGINS_DIR:-/home/octant/.config/octant/plugins}
+
+              mkdir ${OCTANT_PLUGINS_DIR}/tmp
+              for plugin in ${OCTANT_PLUGINS_LIST}; do
+                # Extracting the plugin filename from HTTP path
+                plugin_file=$(echo "${plugin}" | rev | cut -d'/' -f1 | rev)
+
+                echo "Downloading plugin: ${plugin}"
+                wget -q ${plugin}
+
+                if [[ $? -ne 0 ]]; then
+                  echo "Error downloading plugin"
+                  continue
+                fi;
+
+                tar -xz -C ${OCTANT_PLUGINS_DIR}/tmp -f ${plugin_file}
+              done
+
+              find ${OCTANT_PLUGINS_DIR}/tmp -maxdepth 1 -executable -type f -exec mv {} ${OCTANT_PLUGINS_DIR} \;
+              rm -fr ${OCTANT_PLUGINS_DIR}/tmp
+
+              chown -R 1000:2000 ${OCTANT_PLUGINS_DIR}
+          env:
+            - name: OCTANT_PLUGINS_DIR
+              value: {{ .Values.plugins.dir.mountPath | quote }}
+            - name: OCTANT_PLUGINS_LIST
+              value: {{ .Values.plugins.install | join " " | quote }}
+          volumeMounts:
+          - name: plugins-mount
+            mountPath: {{ .Values.plugins.dir.mountPath | quote }}
+      {{- end }}
+      {{- if .Values.extraInitContainers }}
         {{- toYaml .Values.extraInitContainers | nindent 8 }}
       {{- end }}
       containers:
@@ -59,6 +101,10 @@ spec:
           env:
             - name: OCTANT_HTTP_PORT
               value: {{ .Values.service.port | quote }}
+            - name: OCTANT_PLUGINS_DIR
+              value: {{ .Values.plugins.dir.mountPath | quote }}
+            - name: OCTANT_PLUGINS_LIST
+              value: {{ .Values.plugins.install | join " " | quote }}
           {{- if .Values.extraEnvs }}
             {{- toYaml .Values.extraEnvs | nindent 12 }}
           {{- end }}
@@ -73,6 +119,9 @@ spec:
           volumeMounts:
             - name: tmp-mount
               mountPath: /tmp
+            - name: plugins-mount
+              mountPath: {{ .Values.plugins.dir.mountPath | quote }}
+              #readOnly: true
           {{- if .Values.extraVolumeMounts }}
             {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
           {{- end }}
@@ -81,6 +130,10 @@ spec:
       volumes:
         - name: tmp-mount
           emptyDir: {}
+        - name: plugins-mount
+          {{- with .Values.plugins.dir.mount }}
+          {{ . | toYaml | nindent 10 }}
+          {{- end }}
       {{- if .Values.extraVolumes }}
         {{- toYaml .Values.extraVolumes | nindent 8 }}
       {{- end }}

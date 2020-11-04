@@ -19,6 +19,10 @@ COPY docker-entrypoint.sh /
 
 FROM alpine:3
 
+WORKDIR /tmp
+
+RUN addgroup -g 2000 -S octant && adduser -u 1000 -h /home/octant -G octant -S octant
+
 COPY --from=builder /opt/octant /opt/octant
 COPY docker-entrypoint.sh /
 
