@@ -78,6 +78,7 @@ securityContext:
 service:
   type: ClusterIP
   port: 8000
+  nodePort: 30010
 
 ingress:
   enabled: false
