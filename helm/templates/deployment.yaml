@@ -78,7 +78,7 @@ spec:
           - --client-id={{ .Values.keycloakGatekeeper.clientId }}
           - --client-secret={{ .Values.keycloakGatekeeper.clientSecret }}
           - --discovery-url={{ .Values.keycloakGatekeeper.url }}
-          - --listen=0.0.0.0:{{ .Values.keycloakGatekeeper.proxyPort }}
+          - --listen=0.0.0.0:{{ .Values.keycloakGatekeeper.port }}
           - --upstream-url=http://127.0.0.1:{{ .Values.service.port }}
           - --enable-logging=true
           - --preserve-host=true
