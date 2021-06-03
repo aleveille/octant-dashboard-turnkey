@@ -12,6 +12,13 @@ rules:
 {{- end }}
 {{- else }}
   - apiGroups:
+      - "*"
+    resources: ["*"]
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
       - ""
     resources: ["*"]
     verbs:
