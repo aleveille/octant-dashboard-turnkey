@@ -76,7 +76,7 @@ securityContext:
   runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8000
   nodePort: 30010
 
@@ -93,8 +93,12 @@ resources: {}
 #    cpu: 500m
 #    memory: 256Mi
 
-nodeSelector: {}
+nodeSelector: 
+  node-role.kubernetes.io/master: ""
 
-tolerations: []
+tolerations:
+- key: node-role.kubernetes.io/master
+  operator: Exists
+  effect: NoSchedule
 
 affinity: {}
