@@ -4,6 +4,10 @@ metadata:
   annotations:
     rbac.authorization.kubernetes.io/autoupdate: "true"
   labels:
+    app: {{ include "octant.name" . }}
+    chart: {{ include "octant.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
   name: octant-readonly-everything
 rules:
 {{- if .Values.clusterRole.rules }}
@@ -50,6 +54,11 @@ kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: octant-role-binding
+  labels:
+    app: {{ include "octant.name" . }}
+    chart: {{ include "octant.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 subjects:
 - kind: ServiceAccount
   name: {{ include "octant.serviceAccountName" . }}
