@@ -2,43 +2,13 @@ apiVersion: v1
 entries:
   octant:
   - apiVersion: v2
-    appVersion: 0.18.0
-    created: "2021-04-01T12:46:21.775267-04:00"
+    appVersion: 0.22.0
+    created: "2021-07-19T08:49:32.433018-04:00"
     description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
-    digest: 655a77eb7758454c81e7aa6b36bfc56b9fbce3d16a6a8a28e963e65f64de8669
+    digest: cf6bc0d00c459ae829bfeee433b4370264b3b3f0ed8ee81bc047db1efb39b414
     name: octant
     type: application
     urls:
-    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.18.0/octant-0.18.0.tgz
-    version: 0.18.0
-  - apiVersion: v2
-    appVersion: 0.17.0
-    created: "2021-03-08T18:13:11.583704-05:00"
-    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
-    digest: 787ce68a46fafc63d4ed1f89e3fa75b4540b26387ff89be3813ea67fea94c3fb
-    name: octant
-    type: application
-    urls:
-    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.17.0/octant-0.17.0.tgz
-    version: 0.17.0
-  - apiVersion: v2
-    appVersion: 0.16.3
-    created: "2021-02-02T08:48:14.465097-05:00"
-    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
-    digest: 45bb065be1ef3edbfeeaa709b897a8a612e45ab202ffdd2324cd4d68b2919c8e
-    name: octant
-    type: application
-    urls:
-    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.16.3/octant-0.16.3.tgz
-    version: 0.16.3
-  - apiVersion: v2
-    appVersion: 0.16.2
-    created: "2020-12-08T21:19:15.449561-05:00"
-    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
-    digest: 9a74abbc0be10d10b2fe99157121c6e30a78bc8add2f7c9cf305f15dc7c0525a
-    name: octant
-    type: application
-    urls:
-    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.16.2/octant-0.16.2.tgz
-    version: 0.16.2
-generated: "2021-04-01T12:46:21.515881-04:00"
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.22.0/octant-0.22.0.tgz
+    version: 0.22.0
+generated: "2021-07-19T08:49:32.207307-04:00"

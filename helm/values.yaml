@@ -1,7 +1,7 @@
 replicas: 1
 
 image:
-  fullname: aleveille/octant-dashboard:v0.20.0
+  fullname: aleveille/octant-dashboard:v0.22.0
   pullPolicy: IfNotPresent
 
 keycloakGatekeeper:
@@ -97,3 +97,4 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+{"mode":"full","isActive":false}
