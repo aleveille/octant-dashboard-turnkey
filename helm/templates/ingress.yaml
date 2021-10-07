@@ -2,9 +2,11 @@
 {{- $fullName := include "octant.fullname" . -}}
 {{- $svcPort := .Values.keycloakGatekeeper.proxyPort -}}
 
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+{{- if and (.Capabilities.APIVersions.Has "networking.k8s.io/v1") (semverCompare ">= 1.19.x" .Capabilities.KubeVersion.Version) }}
+apiVersion: networking.k8s.io/v1
+{{- else if .Capabilities.APIVersions.Has "networking.k8s.io/v1beta1" }}
 apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
+{{- else }}
 apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
@@ -33,10 +35,19 @@ spec:
       http:
         paths:
         {{- range .paths }}
-          - path: {{ . }}
+          - path: {{ .path }}
+            {{- if $.Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
+            pathType: {{ .pathType }}
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  name: http
+            {{- else }}
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
+            {{- end }}
         {{- end }}
   {{- end }}
 {{- end }}

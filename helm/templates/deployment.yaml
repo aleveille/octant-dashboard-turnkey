@@ -86,7 +86,7 @@ spec:
           - --encryption-key={{ include "idp.encryption_key" . }}
           ports:
             - name: http-sso
-              containerPort: {{ .Values.keycloakGatekeeper.proxyPort }}
+              containerPort: {{ .Values.keycloakGatekeeper.port }}
               protocol: TCP
         {{- end }}
         - name: {{ .Chart.Name }}
