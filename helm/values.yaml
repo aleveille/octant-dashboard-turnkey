@@ -1,7 +1,7 @@
 replicas: 1
 
 image:
-  fullname: aleveille/octant-dashboard:v0.22.0
+  fullname: aleveille/octant-dashboard:v0.24.0
   pullPolicy: IfNotPresent
 
 keycloakGatekeeper:
