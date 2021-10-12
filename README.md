@@ -65,7 +65,8 @@ ingress:
   hosts:
     - host: octant.yourdns.zone.com
       paths:
-      - /
+      - path: /
+        pathType: ImplementationSpecific
   tls: []
 
 clusterRole:
