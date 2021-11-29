@@ -1,7 +1,7 @@
 replicas: 1
 
 image:
-  fullname: aleveille/octant-dashboard:v0.24.0
+  fullname: aleveille/octant-dashboard:v0.25.0
   pullPolicy: IfNotPresent
 
 keycloakGatekeeper:
@@ -86,11 +86,11 @@ ingress:
 
 resources: {}
 #  limits:
-#    cpu: 500m
-#    memory: 256Mi
+#    cpu: 1000m
+#    memory: 1Gi
 #  requests:
 #    cpu: 500m
-#    memory: 256Mi
+#    memory: 1Gi
 
 nodeSelector: {}
 
