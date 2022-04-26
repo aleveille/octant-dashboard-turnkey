@@ -1,6 +1,6 @@
 FROM --platform=linux/arm64 alpine:3 AS add-arm64
 ENV OCTANT_VERSION=0.25.1
-ENV OCTANT_CHECKSUM=a3eb4973a0c869267e3916bd43e0b41b2bbc73b898376b795a617299c7b2a623
+ENV OCTANT_CHECKSUM=b12bb6752e43f4e0fe54278df8e98dee3439c4066f66cdb7a0ca4a1c7d8eaa1e
 ADD https://github.com/vmware-tanzu/octant/releases/download/v${OCTANT_VERSION}/octant_${OCTANT_VERSION}_Linux-arm64.tar.gz /tmp/octant.tar.gz
 
 FROM --platform=linux/amd64 alpine:3 AS add-amd64
