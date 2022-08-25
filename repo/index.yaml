@@ -15,7 +15,7 @@ entries:
     type: application
     urls:
     - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-1.0.0/octant-1.0.0.tgz
-  version: 1.0.0
+    version: 1.0.0
   - apiVersion: v2
     appVersion: 0.25.1
     created: "2022-04-25T21:09:14.219705-04:00"
