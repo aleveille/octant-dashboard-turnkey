@@ -68,27 +68,6 @@ spec:
         {{- toYaml .Values.extraInitContainers | nindent 8 }}
       {{- end }}
       containers:
-        {{- if .Values.keycloakGatekeeper.enabled }}
-        - name: sso
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: keycloak/keycloak-gatekeeper:latest
-          imagePullPolicy: Always
-          args:
-          - "--client-id={{ .Values.keycloakGatekeeper.clientId }}"
-          - "--client-secret={{ .Values.keycloakGatekeeper.clientSecret }}"
-          - "--discovery-url={{ .Values.keycloakGatekeeper.url }}"
-          - "--listen=0.0.0.0:{{ .Values.keycloakGatekeeper.port }}"
-          - "--upstream-url=http://127.0.0.1:{{ .Values.service.port }}"
-          - "--enable-logging=true"
-          - "--preserve-host=true"
-          - "--enable-refresh-tokens=true"
-          - "--encryption-key={{ include "idp.encryption_key" . }}"
-          ports:
-            - name: http-sso
-              containerPort: {{ .Values.keycloakGatekeeper.port }}
-              protocol: TCP
-        {{- end }}
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}

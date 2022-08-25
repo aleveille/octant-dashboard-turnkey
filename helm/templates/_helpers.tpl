@@ -61,10 +61,3 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
-
-{{/*
-Expand a fixed encryption_key for Keycloak, based on the chart name.
-*/}}
-{{- define "idp.encryption_key" -}}
-{{- (include "octant.fullname" .) | sha256sum | trunc 32 -}}
-{{- end -}}

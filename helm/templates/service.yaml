@@ -12,11 +12,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      {{- if .Values.keycloakGatekeeper.enabled }}
-      targetPort: http-sso
-      {{- else }}
       targetPort: http
-      {{- end }}
       protocol: TCP
       name: http
   selector:

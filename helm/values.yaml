@@ -4,13 +4,6 @@ image:
   fullname: aleveille/octant-dashboard:v0.25.1
   pullPolicy: IfNotPresent
 
-keycloakGatekeeper:
-  enabled: false
-  url: ~
-  clientId: ~
-  clientSecret: ~
-  port: ~
-
 ## Additional environment variables to set
 extraEnvs: []
 # extraEnvs:

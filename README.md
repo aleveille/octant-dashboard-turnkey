@@ -14,19 +14,17 @@ Octant is a tool for developers to understand how applications run on a Kubernet
 
 ## The purpose of this repo
 
-I like Octant, but sometimes giving Kubectl config to your developers isn't
-feasible or practical (for various reasons, which is another discussion
-altogether!).
+I like Octant, but sometimes giving a `.kube/config` file to your developers
+isn't feasible or practical (for various reasons, which is another
+discussion altogether!).
 
 So I figured I could deploy octant in as a read-only dashboard alternative to
 the official Kubernetes dashboard. This repository is me open-sourcing and
-sharing my deployment configuration. I often use Keycloak Gatekeeper as an SSO
-proxy to various application and this Helm deployment chart supports enabling
-Gatekeeper as an SSO proxy to Octant.
+sharing my deployment configuration.
 
 Effectively, using this repo you can:
 * Install Octant as read-only in your Kubernetes cluster(s)
-* Protect that dashboard with SSO
+* Protect that dashboard with SSO ([OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/) dependancy)
 
 ## Installing with Helm
 
@@ -47,13 +45,6 @@ and that assumes you are terminating SSL somewhere upstream. By default, this ch
 already part of this chart (in the values files below you can see an example to whitelist *everything*).
 
 ```
-keycloakGatekeeper:
-  enabled: true
-  url: https://keycloak.yourdns.zone.com/auth/realms/master
-  clientId: octantClientId
-  clientSecret: 123e4567-e89b-12d3-a456-426655440000
-  proxyPort: 4999
-
 #imagePullSecrets:
 #- name: someSecret
 

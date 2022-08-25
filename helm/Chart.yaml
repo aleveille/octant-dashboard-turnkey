@@ -6,8 +6,14 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 0.25.1
+version: 1.0.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
 appVersion: 0.25.1
+
+dependencies:
+  - name: oauth2-proxy
+    version: 6.2.2
+    repository: https://oauth2-proxy.github.io/manifests
+    condition: oauth2-proxy.enabled
