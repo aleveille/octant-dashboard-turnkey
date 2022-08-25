@@ -3,6 +3,21 @@ entries:
   octant:
   - apiVersion: v2
     appVersion: 0.25.1
+    created: "2022-08-25T11:39:06.467807-04:00"
+    dependencies:
+    - condition: oauth2-proxy.enabled
+      name: oauth2-proxy
+      repository: https://oauth2-proxy.github.io/manifests
+      version: 6.2.2
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: d7de71afb43cb59cd2ffd5a7792a7169f62030ed1b6482e06775a12f25f733de
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-1.0.0/octant-1.0.0.tgz
+  version: 1.0.0
+  - apiVersion: v2
+    appVersion: 0.25.1
     created: "2022-04-25T21:09:14.219705-04:00"
     description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
     digest: 9ae4499ae200ef283d8f4a3a4f9e2af36d0d0239816cd6532b351d14695c8797
@@ -11,4 +26,44 @@ entries:
     urls:
     - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.25.1/octant-0.25.1.tgz
     version: 0.25.1
-generated: "2022-04-25T21:09:14.219717-04:00"
+  - apiVersion: v2
+    appVersion: 0.25.0
+    created: "2021-11-29T14:00:18.491621-05:00"
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: fd7b766287a60fb280089352ac470c1dd4594da56920f5afa3cf6123db2ead89
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.25.0/octant-0.25.0.tgz
+    version: 0.25.0
+  - apiVersion: v2
+    appVersion: 0.24.0
+    created: "2021-10-06T21:14:56.651709-04:00"
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: 8d5f833be6af5433997a612a25ab1b68e984e18003e603247bce8a5c89ae9d16
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.24.0/octant-0.24.0.tgz
+    version: 0.24.0
+  - apiVersion: v2
+    appVersion: 0.16.3
+    created: "2021-02-02T08:48:14.465097-05:00"
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: 45bb065be1ef3edbfeeaa709b897a8a612e45ab202ffdd2324cd4d68b2919c8e
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.16.3/octant-0.16.3.tgz
+    version: 0.16.3
+  - apiVersion: v2
+    appVersion: 0.16.2
+    created: "2020-12-08T21:19:15.449561-05:00"
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: 9a74abbc0be10d10b2fe99157121c6e30a78bc8add2f7c9cf305f15dc7c0525a
+    name: octant
+    type: application
+    urls:
+    - https://github.com/aleveille/octant-dashboard-turnkey/releases/download/octant-0.16.2/octant-0.16.2.tgz
+    version: 0.16.2
+generated: "2022-08-25T11:39:06.46783-04:00"
