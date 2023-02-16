@@ -1,4 +1,10 @@
-# Octant Dashboard turnkey Docker image and Helm deployment files
+# (DEPRECATED) Octant Dashboard turnkey Docker image and Helm deployment files
+
+## Deprecation notice
+
+[VMware/Tanzu has deprecated Octant](https://github.com/vmware-archive/octant). By extension, this repository is now deprecated has wel..
+
+## Intro
 
 This repository provides ready-to-use Helm deployment files and a Docker image
 to deploy the [Octant](https://octant.dev/) tool in your Kubernetes cluster in
